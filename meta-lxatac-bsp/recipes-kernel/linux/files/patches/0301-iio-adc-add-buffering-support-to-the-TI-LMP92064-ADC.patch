@@ -23,6 +23,7 @@ the iio-trig-hrtimer:
     ...
 
 Signed-off-by: Leonard Göhrs <l.goehrs@pengutronix.de>
+Applied-Upstream: v6.6-rc1, commit:6c7bc1d27bb227da89aa7e1be71d01b92719551d
 ---
  drivers/iio/adc/ti-lmp92064.c | 53 +++++++++++++++++++++++++++++++++++++++++++
  1 file changed, 53 insertions(+)

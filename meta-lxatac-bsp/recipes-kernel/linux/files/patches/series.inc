@@ -1,9 +1,9 @@
 # umpf-base: v6.5
 # umpf-name: 6.5/customers/lxa/lxatac
-# umpf-version: 6.5/customers/lxa/lxatac/20230927-1
+# umpf-version: 6.5/customers/lxa/lxatac/20231019-1
 # umpf-topic: v6.5/customers/lxa/lxatac
-# umpf-hashinfo: b2b6e05bc53e4dc80c074b4fcaae16364ead92cb
-# umpf-topic-range: 2dde18cd1d8fac735875f2e4987f11817cc0bc2c..8547106d90e8c9f4e2c16e7e9ea549d0715a789c
+# umpf-hashinfo: 00cc91ff4ae50fe60f09e43b8760ca71d93f03f5
+# umpf-topic-range: 2dde18cd1d8fac735875f2e4987f11817cc0bc2c..b87c8b6a72317760fdf1c466e6bfb65b0d0ad524
 SRC_URI += "\
   file://patches/0001-dt-bindings-can-m_can-change-from-additional-to-unev.patch \
   file://patches/0002-dt-bindings-net-dsa-microchip-add-interrupts-propert.patch \
@@ -15,37 +15,39 @@ SRC_URI += "\
   file://patches/0008-ARM-dts-stm32-lxa-tac-drive-powerboard-lines-as-open.patch \
   "
 # umpf-topic: v6.5/topic/pwm-stm32
-# umpf-hashinfo: 0a81cfa2fa0c23e9f0b7cb8fcac647af866b6b5b
-# umpf-topic-range: 8547106d90e8c9f4e2c16e7e9ea549d0715a789c..994d8b2552053b897c9c5c74e8177d9024b8b24e
+# umpf-hashinfo: 07fe27cf29637b1f01c05597d2cf26622623647b
+# umpf-topic-range: b87c8b6a72317760fdf1c466e6bfb65b0d0ad524..39153b14b6f4d61eb10d4e3e147dad8da8f0db40
 SRC_URI += "\
   file://patches/0101-pwm-stm32-Replace-write_ccrx-with-regmap_write.patch \
   file://patches/0102-pwm-stm32-Make-ch-parameter-unsigned.patch \
   file://patches/0103-pwm-stm32-Use-hweight32-in-stm32_pwm_detect_channels.patch \
   file://patches/0104-pwm-stm32-Implement-.get_state.patch \
+  file://patches/0105-pwm-stm32-Fix-enable-count-for-clk-in-.probe.patch \
   "
 # umpf-topic: v6.5/topic/pwm-backlight
-# umpf-hashinfo: 7f684487c94a882dd63183e8d8563c6ae90c983c
-# umpf-topic-range: 994d8b2552053b897c9c5c74e8177d9024b8b24e..68e0a242f3f2658670e225d3168428b9fe1b1c2e
+# umpf-hashinfo: b2fbd4752f683d1c231d85417d61e1fa9671d6f2
+# umpf-topic-range: 39153b14b6f4d61eb10d4e3e147dad8da8f0db40..3b7246f393877933b62134a0b150aeeb4e15f39a
 SRC_URI += "\
   file://patches/0201-backlight-pwm_bl-Avoid-backlight-flicker-applying-in.patch \
   "
 # umpf-topic: v6.5/topic/lmp92064
-# umpf-hashinfo: 51bcd7180839086d74c7a74becccdc9e66597502
-# umpf-topic-range: 68e0a242f3f2658670e225d3168428b9fe1b1c2e..6416d9d2e0b2a496fe2676b629502fc1aeece9b9
+# umpf-hashinfo: 587ee9faac20ce4e140d0d0e4103f4902167eb39
+# umpf-topic-range: 3b7246f393877933b62134a0b150aeeb4e15f39a..5d268842a571262a1a19b5218f7415b608d46fba
 SRC_URI += "\
   file://patches/0301-iio-adc-add-buffering-support-to-the-TI-LMP92064-ADC.patch \
   "
 # umpf-topic: v6.5/topic/tty-trigger
-# umpf-hashinfo: 634a2550c0ba22171325f847145ad5c8738a3a55
-# umpf-topic-range: 6416d9d2e0b2a496fe2676b629502fc1aeece9b9..0b0b4a250e63a357337912cc9bd804dae0dede16
+# umpf-hashinfo: d3c10f9f59bcbe48740453bc85949e3315668db7
+# umpf-topic-range: 5d268842a571262a1a19b5218f7415b608d46fba..1e0dab9f902dd54f8f54d450bc86e65e904ebc17
 SRC_URI += "\
   file://patches/0401-leds-trigger-tty-Do-not-use-LED_ON-OFF-constants-use.patch \
-  file://patches/0402-tty-add-new-helper-function-tty_get_mget.patch \
-  file://patches/0403-trigger-ledtrig-tty-add-new-line-mode-to-triggers.patch \
+  file://patches/0402-tty-whitespaces-in-descriptions-corrected-by-replaci.patch \
+  file://patches/0403-tty-add-new-helper-function-tty_get_tiocm.patch \
+  file://patches/0404-leds-ledtrig-tty-add-new-line-mode-evaluation.patch \
   "
-# umpf-release: 6.5/customers/lxa/lxatac/20230927-1
-# umpf-topic-range: 0b0b4a250e63a357337912cc9bd804dae0dede16..c50a507cd9f8c499965d08292e2d21255e391c77
+# umpf-release: 6.5/customers/lxa/lxatac/20231019-1
+# umpf-topic-range: 1e0dab9f902dd54f8f54d450bc86e65e904ebc17..3f3187acaad5241a48aca79cb6c648664ecde54e
 SRC_URI += "\
-  file://patches/0501-Release-6.5-customers-lxa-lxatac-20230927-1.patch \
+  file://patches/0501-Release-6.5-customers-lxa-lxatac-20231019-1.patch \
   "
 # umpf-end
