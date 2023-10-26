@@ -8,21 +8,20 @@ option to enable this.
 
 Signed-off-by: Ahmad Fatoum <a.fatoum@pengutronix.de>
 ---
- common/Kconfig |  9 +++++++++
+ common/Kconfig |  8 ++++++++
  common/misc.c  | 16 ++++++++++++++++
- 2 files changed, 25 insertions(+)
+ 2 files changed, 24 insertions(+)
 
 diff --git a/common/Kconfig b/common/Kconfig
-index e10884e44169..d99bff5eb2fd 100644
+index d95797099341..fcec575ec8f7 100644
 --- a/common/Kconfig
 +++ b/common/Kconfig
-@@ -1088,6 +1088,15 @@ config SERIAL_NUMBER_FIXUP
- 	help
- 	  fixup serial number supplied by board code info device tree
+@@ -1083,6 +1083,14 @@ config MACHINE_ID
+ 	  Note: if no hashable information is available no machine id will be passed
+ 	  to the kernel.
  
 +config SERIAL_NUMBER_FIXUP_SYSTEMD_HOSTNAME
 +	bool "fix up board serial number into hostname"
-+	depends on SERIAL_NUMBER_FIXUP
 +	depends on FLEXIBLE_BOOTARGS
 +	help
 +	  add a systemd.hostname= kernel command line argument consisting

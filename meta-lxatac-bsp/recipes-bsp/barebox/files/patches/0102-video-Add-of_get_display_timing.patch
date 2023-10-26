@@ -1,5 +1,5 @@
 From: Philipp Zabel <p.zabel@pengutronix.de>
-Date: Mon, 27 Mar 2023 14:17:09 +0200
+Date: Thu, 30 Mar 2023 14:46:41 +0200
 Subject: [PATCH] video: Add of_get_display_timing
 
 Add a port of the kernel of_get_display_timing() that writes a
@@ -8,6 +8,9 @@ don't have.
 
 Signed-off-by: Philipp Zabel <p.zabel@pengutronix.de>
 Reviewed-by: Ahmad Fatoum <a.fatoum@pengutronix.de>
+Link: https://lore.barebox.org/20230330124643.3562397-2-p.zabel@pengutronix.de
+Signed-off-by: Sascha Hauer <s.hauer@pengutronix.de>
+Origin: v2023.05.0, commit:9190f984ec2cd0fee523a7be640672c8202bdf51
 ---
  drivers/video/of_display_timing.c | 22 ++++++++++++++++++++++
  include/fb.h                      |  2 ++

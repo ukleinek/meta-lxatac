@@ -1,5 +1,5 @@
 From: Philipp Zabel <p.zabel@pengutronix.de>
-Date: Thu, 30 Mar 2023 12:15:08 +0200
+Date: Mon, 3 Apr 2023 13:53:39 +0200
 Subject: [PATCH] video: mipi_dbi: disable byte swapping if 16-bit SPI
  transfers are supported
 
@@ -8,6 +8,9 @@ is no need to swap bytes on little-endian architectures. This also
 allows to transfer directly from the 16-bit framebuffer.
 
 Signed-off-by: Philipp Zabel <p.zabel@pengutronix.de>
+Link: https://lore.barebox.org/20230403115340.3416720-3-p.zabel@pengutronix.de
+Signed-off-by: Sascha Hauer <s.hauer@pengutronix.de>
+Origin: v2023.05.0, commit:18ba95d982733ab123e93debeea58a29ba993896
 ---
  drivers/video/mipi_dbi.c | 3 +--
  1 file changed, 1 insertion(+), 2 deletions(-)

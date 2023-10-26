@@ -1,13 +1,14 @@
 From: Philipp Zabel <p.zabel@pengutronix.de>
-Date: Fri, 31 Mar 2023 15:37:37 +0200
+Date: Wed, 5 Apr 2023 14:27:34 +0200
 Subject: [PATCH] video: mipi_dbi: add damage tracking and partial updates
 
 Track framebuffer damage with a simple rectangle that can be used to
 issue partial updates during fb_flush. This speeds up fbconsole.
 
 Signed-off-by: Philipp Zabel <p.zabel@pengutronix.de>
----
-v2: make rect parameter to fb_damage const
+Link: https://lore.barebox.org/20230405122734.2348025-3-p.zabel@pengutronix.de
+Signed-off-by: Sascha Hauer <s.hauer@pengutronix.de>
+Origin: v2023.05.0, commit:125263d784065f335e773c7e0a1c284386f67f90
 ---
  drivers/video/mipi_dbi.c       | 83 ++++++++++++++++++++++++++++++++++--------
  drivers/video/panel-mipi-dbi.c |  1 +

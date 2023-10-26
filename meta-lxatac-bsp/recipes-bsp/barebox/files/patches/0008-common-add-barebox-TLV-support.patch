@@ -31,7 +31,7 @@ Signed-off-by: Ahmad Fatoum <a.fatoum@pengutronix.de>
  create mode 100644 include/tlv/tlv.h
 
 diff --git a/common/Kconfig b/common/Kconfig
-index d99bff5eb2fd..3fdf3db7947c 100644
+index fcec575ec8f7..23277ee69073 100644
 --- a/common/Kconfig
 +++ b/common/Kconfig
 @@ -1010,6 +1010,30 @@ config BTHREAD

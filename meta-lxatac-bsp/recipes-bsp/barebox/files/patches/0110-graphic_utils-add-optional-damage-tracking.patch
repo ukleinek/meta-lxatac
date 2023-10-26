@@ -1,5 +1,5 @@
 From: Philipp Zabel <p.zabel@pengutronix.de>
-Date: Wed, 5 Apr 2023 13:48:56 +0200
+Date: Wed, 5 Apr 2023 14:27:33 +0200
 Subject: [PATCH] graphic_utils: add optional damage tracking
 
 Annotate framebuffer updates with damage rectangles so drivers may
@@ -7,8 +7,9 @@ implement partial updates for displays with an integrated framebuffer.
 This can speed up fbconsole.
 
 Signed-off-by: Philipp Zabel <p.zabel@pengutronix.de>
----
-v2: call fb_damage() in graphic_utils instead of fbconsole
+Link: https://lore.barebox.org/20230405122734.2348025-2-p.zabel@pengutronix.de
+Signed-off-by: Sascha Hauer <s.hauer@pengutronix.de>
+Origin: v2023.05.0, commit:3002b31da23f9022fd8704fb9f520de9f1485e8d
 ---
  lib/gui/graphic_utils.c | 16 ++++++++++++++++
  1 file changed, 16 insertions(+)

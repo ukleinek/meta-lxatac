@@ -1,5 +1,5 @@
 From: Philipp Zabel <p.zabel@pengutronix.de>
-Date: Fri, 31 Mar 2023 12:33:34 +0200
+Date: Wed, 5 Apr 2023 14:27:32 +0200
 Subject: [PATCH] video: fb: add optional damage tracking
 
 Add an optional fb_damage operation that drivers may use to accumulate
@@ -8,8 +8,9 @@ damage can be used to support partial updates for displays with an
 integrated framebuffer.
 
 Signed-off-by: Philipp Zabel <p.zabel@pengutronix.de>
----
-v2: make rect parameter to fb_damage const
+Link: https://lore.barebox.org/20230405122734.2348025-1-p.zabel@pengutronix.de
+Signed-off-by: Sascha Hauer <s.hauer@pengutronix.de>
+Origin: v2023.05.0, commit:aaaae2cfbbb905b0c4ea8db6bd57ed94cf7840b8
 ---
  drivers/video/fb.c | 6 ++++++
  include/fb.h       | 9 +++++++++

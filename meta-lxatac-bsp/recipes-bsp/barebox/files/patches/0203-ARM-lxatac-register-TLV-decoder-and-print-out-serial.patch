@@ -6,26 +6,19 @@ TLV for factory data is described in device tree. Register associated
 decoder to match against it and to showcase use of decoded data, print
 out device_serial_number.
 
-As we do not yet employ deep probe for STM32MP1 platform, move board
-driver registration to later point of time to be sure TLV device is
-available. We separate out switch to have it happen before MAC setup.
-This is not strictly necessary as networking isn't usable in barebox and
-later on with DSA support, reset will happen in switch driver, but
-splitting it up nevertheless improves readability.
-
 Signed-off-by: Ahmad Fatoum <a.fatoum@pengutronix.de>
 ---
- arch/arm/boards/lxa-tac/board.c | 18 +++++++++++++++++-
+ arch/arm/boards/lxa-tac/board.c | 16 ++++++++++++++++
  arch/arm/mach-stm32mp/Kconfig   |  2 ++
- 2 files changed, 19 insertions(+), 1 deletion(-)
+ 2 files changed, 18 insertions(+)
 
 diff --git a/arch/arm/boards/lxa-tac/board.c b/arch/arm/boards/lxa-tac/board.c
-index 5403dda7680f..6e7d4bf77635 100644
+index b17dd10880bf..274be50e4119 100644
 --- a/arch/arm/boards/lxa-tac/board.c
 +++ b/arch/arm/boards/lxa-tac/board.c
-@@ -6,13 +6,29 @@
- #include <mach/bbu.h>
+@@ -7,13 +7,29 @@
  #include <bootsource.h>
+ #include <deep-probe.h>
  #include <of.h>
 +#include <tlv/tlv.h>
 +#include <boards/lxa/tlv.h>
@@ -53,12 +46,6 @@ index 5403dda7680f..6e7d4bf77635 100644
  	return 0;
  }
  
-@@ -26,4 +42,4 @@ static struct driver tac_board_driver = {
- 	.probe = tac_probe,
- 	.of_compatible = tac_of_match,
- };
--device_platform_driver(tac_board_driver);
-+late_platform_driver(tac_board_driver);
 diff --git a/arch/arm/mach-stm32mp/Kconfig b/arch/arm/mach-stm32mp/Kconfig
 index e244bd392503..0155d3613197 100644
 --- a/arch/arm/mach-stm32mp/Kconfig

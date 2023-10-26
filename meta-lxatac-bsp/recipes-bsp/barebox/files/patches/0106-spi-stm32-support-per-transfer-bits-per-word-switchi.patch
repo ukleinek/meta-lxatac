@@ -1,12 +1,13 @@
 From: Philipp Zabel <p.zabel@pengutronix.de>
-Date: Tue, 28 Mar 2023 10:33:43 +0200
+Date: Mon, 3 Apr 2023 13:53:38 +0200
 Subject: [PATCH] spi: stm32: support per-transfer bits per word switching
 
 Allow dynamically switching data size between transfers.
 
 Signed-off-by: Philipp Zabel <p.zabel@pengutronix.de>
----
-v2: query max bits-per-word after clk_enable() and device_reset()
+Link: https://lore.barebox.org/20230403115340.3416720-2-p.zabel@pengutronix.de
+Signed-off-by: Sascha Hauer <s.hauer@pengutronix.de>
+Origin: v2023.05.0, commit:44acfda59830afeadcd59ac0ec6d19da4b1c23b9
 ---
  drivers/spi/stm32_spi.c | 50 ++++++++++++++++++++++++++++++++++++++-----------
  1 file changed, 39 insertions(+), 11 deletions(-)

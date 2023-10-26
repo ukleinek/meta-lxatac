@@ -1,11 +1,14 @@
 From: Philipp Zabel <p.zabel@pengutronix.de>
-Date: Wed, 5 Apr 2023 14:30:34 +0200
+Date: Wed, 5 Apr 2023 15:06:45 +0200
 Subject: [PATCH] video: fbconsole: implement non-fullscreen fbconsole
 
 Let fbconsole cover only part of the screen.
 Configurable via margin.{left,top,right,bottom} device parameters.
 
 Signed-off-by: Philipp Zabel <p.zabel@pengutronix.de>
+Link: https://lore.barebox.org/20230405130645.2407719-1-p.zabel@pengutronix.de
+Signed-off-by: Sascha Hauer <s.hauer@pengutronix.de>
+Origin: v2023.05.0, commit:7e1678e5f5a83d6e3e7ede405ad5ed1f48a13971
 ---
  drivers/video/fbconsole.c | 115 ++++++++++++++++++++++++++++++++++++++++------
  1 file changed, 101 insertions(+), 14 deletions(-)

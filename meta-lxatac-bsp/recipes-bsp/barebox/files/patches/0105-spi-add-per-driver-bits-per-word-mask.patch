@@ -1,20 +1,31 @@
 From: Philipp Zabel <p.zabel@pengutronix.de>
-Date: Thu, 30 Mar 2023 12:04:54 +0200
+Date: Mon, 3 Apr 2023 13:53:37 +0200
 Subject: [PATCH] spi: add per-driver bits-per-word mask
 
 Allow SPI hosts to signal per-transfer bits-per-word switching
 support and drivers to query it with spi_is_bpw_supported().
 
 Signed-off-by: Philipp Zabel <p.zabel@pengutronix.de>
+Link: https://lore.barebox.org/20230403115340.3416720-1-p.zabel@pengutronix.de
+Signed-off-by: Sascha Hauer <s.hauer@pengutronix.de>
+Origin: v2023.05.0, commit:a28e290780b36e4ddf9c0afd2043b6c3ffe8156f
 ---
- include/spi/spi.h | 31 +++++++++++++++++++++++++++++++
- 1 file changed, 31 insertions(+)
+ include/spi/spi.h | 32 ++++++++++++++++++++++++++++++++
+ 1 file changed, 32 insertions(+)
 
 diff --git a/include/spi/spi.h b/include/spi/spi.h
-index fa9329b08c80..809ebd8df1a8 100644
+index fa9329b08c80..6a5c0e32cfe6 100644
 --- a/include/spi/spi.h
 +++ b/include/spi/spi.h
-@@ -131,6 +131,11 @@ struct spi_message;
+@@ -6,6 +6,7 @@
+ #include <linux/err.h>
+ #include <linux/kernel.h>
+ #include <linux/string.h>
++#include <linux/bitops.h>
+ 
+ struct spi_controller_mem_ops;
+ 
+@@ -131,6 +132,11 @@ struct spi_message;
   *	SPI slaves, and are numbered from zero to num_chipselects.
   *	each slave has a chipselect signal, but it's common that not
   *	every chipselect is connected to a slave.
@@ -26,7 +37,7 @@ index fa9329b08c80..809ebd8df1a8 100644
   * @max_speed_hz: Highest supported transfer speed
   * @setup: updates the device mode and clocking records used by a
   *	device's SPI controller; protocol code may call this.  This
-@@ -165,6 +170,12 @@ struct spi_controller {
+@@ -165,6 +171,12 @@ struct spi_controller {
  
  	/* Optimized handlers for SPI memory-like operations */
  	const struct spi_controller_mem_ops *mem_ops;
@@ -39,7 +50,7 @@ index fa9329b08c80..809ebd8df1a8 100644
  	/*
  	 * on some hardware transfer size may be constrained
  	 * the limit may depend on device transfer settings
-@@ -435,6 +446,26 @@ spi_transfer_del(struct spi_transfer *t)
+@@ -435,6 +447,26 @@ spi_transfer_del(struct spi_transfer *t)
  	list_del(&t->transfer_list);
  }
  

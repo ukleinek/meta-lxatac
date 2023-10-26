@@ -1,5 +1,5 @@
 From: Philipp Zabel <p.zabel@pengutronix.de>
-Date: Wed, 29 Mar 2023 11:05:13 +0200
+Date: Thu, 30 Mar 2023 14:46:40 +0200
 Subject: [PATCH] firmware: Add request/release_firmware() calls
 
 Add request_firmware() and release_firmware() calls that allow drivers
@@ -8,10 +8,9 @@ remoteproc.h into firmware.h.
 
 Signed-off-by: Philipp Zabel <p.zabel@pengutronix.de>
 Reviewed-by: Ahmad Fatoum <a.fatoum@pengutronix.de>
----
-v2:
-- let request_firmware() stub return -EINVAL instead of -EOPNOTSUPP
-- drop spurious #include <unistd.h>
+Link: https://lore.barebox.org/20230330124643.3562397-1-p.zabel@pengutronix.de
+Signed-off-by: Sascha Hauer <s.hauer@pengutronix.de>
+Origin: v2023.05.0, commit:28e00cb53bf2d5f7bf80a84156202fa2ab8fadd7
 ---
  common/firmware.c          | 32 ++++++++++++++++++++++++++++++++
  include/firmware.h         | 16 ++++++++++++++++

@@ -7,18 +7,18 @@ Powerboard. Its contents are mainly for use in Linux userspace.
 
 Signed-off-by: Ahmad Fatoum <a.fatoum@pengutronix.de>
 ---
- common/boards/Kconfig                  |  5 ++
- common/boards/Makefile                 |  1 +
- common/boards/include/boards/lxa/tlv.h | 14 +++++
- common/boards/lxa/Makefile             |  2 +
- common/boards/lxa/factory-data.c       | 98 ++++++++++++++++++++++++++++++++++
- include/string.h                       |  2 +
- include/tlv/format.h                   |  2 +
- lib/string.c                           | 21 ++++++++
+ common/boards/Kconfig            |  5 ++
+ common/boards/Makefile           |  1 +
+ common/boards/lxa/Makefile       |  2 +
+ common/boards/lxa/factory-data.c | 98 ++++++++++++++++++++++++++++++++++++++++
+ include/boards/lxa/tlv.h         | 14 ++++++
+ include/string.h                 |  2 +
+ include/tlv/format.h             |  2 +
+ lib/string.c                     | 21 +++++++++
  8 files changed, 145 insertions(+)
- create mode 100644 common/boards/include/boards/lxa/tlv.h
  create mode 100644 common/boards/lxa/Makefile
  create mode 100644 common/boards/lxa/factory-data.c
+ create mode 100644 include/boards/lxa/tlv.h
 
 diff --git a/common/boards/Kconfig b/common/boards/Kconfig
 index e27273b7671d..088940941fdb 100644
@@ -42,26 +42,6 @@ index 5b4e429c13e9..33eb8a84cae0 100644
  
  obj-$(CONFIG_BOARD_QEMU_VIRT)	+= qemu-virt/
 +obj-$(CONFIG_BOARD_LXA)		+= lxa/
-diff --git a/common/boards/include/boards/lxa/tlv.h b/common/boards/include/boards/lxa/tlv.h
-new file mode 100644
-index 000000000000..7b4222de43d0
---- /dev/null
-+++ b/common/boards/include/boards/lxa/tlv.h
-@@ -0,0 +1,14 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+#ifndef __BOARDS_LXA_TLV_H_
-+#define __BOARDS_LXA_TLV_H_
-+
-+#ifdef CONFIG_TLV
-+int lxa_tlv_v1_register(void);
-+#else
-+static inline int lxa_tlv_v1_register(void)
-+{
-+	return 0;
-+}
-+#endif
-+
-+#endif
 diff --git a/common/boards/lxa/Makefile b/common/boards/lxa/Makefile
 new file mode 100644
 index 000000000000..29acfec3cb92
@@ -174,6 +154,26 @@ index 000000000000..70ddbc734613
 +
 +	return tlv_register_decoder(&lxa_tlv_powerboard_v1);
 +}
+diff --git a/include/boards/lxa/tlv.h b/include/boards/lxa/tlv.h
+new file mode 100644
+index 000000000000..7b4222de43d0
+--- /dev/null
++++ b/include/boards/lxa/tlv.h
+@@ -0,0 +1,14 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++#ifndef __BOARDS_LXA_TLV_H_
++#define __BOARDS_LXA_TLV_H_
++
++#ifdef CONFIG_TLV
++int lxa_tlv_v1_register(void);
++#else
++static inline int lxa_tlv_v1_register(void)
++{
++	return 0;
++}
++#endif
++
++#endif
 diff --git a/include/string.h b/include/string.h
 index 14f404ef1691..11604c463ea4 100644
 --- a/include/string.h

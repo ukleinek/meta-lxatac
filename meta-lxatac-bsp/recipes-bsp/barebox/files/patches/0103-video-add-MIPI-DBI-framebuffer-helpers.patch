@@ -1,19 +1,14 @@
 From: Philipp Zabel <p.zabel@pengutronix.de>
-Date: Tue, 28 Mar 2023 15:26:07 +0200
+Date: Thu, 30 Mar 2023 14:46:42 +0200
 Subject: [PATCH] video: add MIPI DBI framebuffer helpers
 
 Port helper functions for the panel-mipi-dbi driver from the Linux
 kernel.
 
 Signed-off-by: Philipp Zabel <p.zabel@pengutronix.de>
----
-v2:
-- Remove superfluous empty line
-- Fix mipi_dbi_enable_flush() comment
-- Remove unnecessary regulator checks
-- Avoid memcpy to tx_buf if byte swapping can be avoided
-- Allocate screen_base and tx_buf using dma_alloc(info->screen_size)
-- Align mipi_dbi_fb_dirty() a bit more with the original Linux version
+Link: https://lore.barebox.org/20230330124643.3562397-3-p.zabel@pengutronix.de
+Signed-off-by: Sascha Hauer <s.hauer@pengutronix.de>
+Origin: v2023.05.0, commit:0a4231985048fbac2d1d2fd375b640df2cfb0540
 ---
  drivers/video/mipi_dbi.c | 226 +++++++++++++++++++++++++++++++++++++++++++++++
  include/video/mipi_dbi.h |  63 +++++++++++++

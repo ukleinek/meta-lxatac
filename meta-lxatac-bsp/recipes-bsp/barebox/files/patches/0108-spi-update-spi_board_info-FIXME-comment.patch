@@ -1,20 +1,23 @@
 From: Philipp Zabel <p.zabel@pengutronix.de>
-Date: Thu, 30 Mar 2023 11:52:39 +0200
+Date: Mon, 3 Apr 2023 13:53:40 +0200
 Subject: [PATCH] spi: update spi_board_info FIXME comment
 
 The spi-stm32 driver now supports the spi_transfer.bits_per_word
 override.
 
 Signed-off-by: Philipp Zabel <p.zabel@pengutronix.de>
+Link: https://lore.barebox.org/20230403115340.3416720-4-p.zabel@pengutronix.de
+Signed-off-by: Sascha Hauer <s.hauer@pengutronix.de>
+Origin: v2023.05.0, commit:1c8f8141b9009fdb37d947cee7c401bcd2cba9c6
 ---
  include/spi/spi.h | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/include/spi/spi.h b/include/spi/spi.h
-index 809ebd8df1a8..d479e4f34f0c 100644
+index 6a5c0e32cfe6..f806c7a30b36 100644
 --- a/include/spi/spi.h
 +++ b/include/spi/spi.h
-@@ -44,7 +44,7 @@ struct spi_board_info {
+@@ -45,7 +45,7 @@ struct spi_board_info {
   *	This may be changed by the device's driver, or left at the
   *	default (0) indicating protocol words are eight bit bytes.
   *	The spi_transfer.bits_per_word can override this for each transfer

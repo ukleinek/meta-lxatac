@@ -19,11 +19,11 @@ Signed-off-by: Ahmad Fatoum <a.fatoum@pengutronix.de>
  scripts/.gitignore                |   2 +
  scripts/Makefile                  |   2 +
  scripts/bareboxtlv-target.c       |   1 +
- scripts/bareboxtlv.c              | 184 ++++++++++++++++++++++++++++++++++++++
+ scripts/bareboxtlv.c              | 183 ++++++++++++++++++++++++++++++++++++++
  scripts/include/asm/unaligned.h   |  21 +++++
  scripts/include/linux/build_bug.h |   8 ++
  scripts/include/linux/stringify.h |  14 +++
- 7 files changed, 232 insertions(+)
+ 7 files changed, 231 insertions(+)
  create mode 100644 scripts/bareboxtlv-target.c
  create mode 100644 scripts/bareboxtlv.c
  create mode 100644 scripts/include/asm/unaligned.h
@@ -72,10 +72,10 @@ index 000000000000..52437edef634
 +#include "bareboxtlv.c"
 diff --git a/scripts/bareboxtlv.c b/scripts/bareboxtlv.c
 new file mode 100644
-index 000000000000..eca430104af9
+index 000000000000..0aabb1175f10
 --- /dev/null
 +++ b/scripts/bareboxtlv.c
-@@ -0,0 +1,184 @@
+@@ -0,0 +1,183 @@
 +// SPDX-License-Identifier: GPL-2.0-only
 +// SPDX-FileCopyrightText: 2021 Ahmad Fatoum, Pengutronix
 +
@@ -225,8 +225,7 @@ index 000000000000..eca430104af9
 +			if (ret < 0)
 +				goto out;
 +		}
-+		if (ret >= 0)
-+			ret = write_full_verbose(1, p, size);
++		ret = write_full_verbose(1, p, size);
 +		if (ret < 0)
 +			goto out;
 +	}
